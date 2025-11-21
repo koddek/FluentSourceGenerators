@@ -1,4 +1,7 @@
 # FluentSourceGenerators
+[![NuGet Version](https://img.shields.io/nuget/v/FluentSourceGenerators?label=NuGet)](https://nuget.pkg.github.com/koddek/index.json)
+[![GitHub CI](https://img.shields.io/github/actions/workflow/status/koddek/FluentSourceGenerators/publish-nuget.yml?branch=main&label=CI&logo=githubactions)](https://github.com/koddek/FluentSourceGenerators/actions/workflows/publish-nuget.yml)
+[![License](https://img.shields.io/github/license/koddek/FluentSourceGenerators)](LICENSE)
 
 **The Pit of Success™ for Roslyn Incremental Source Generators**
 
