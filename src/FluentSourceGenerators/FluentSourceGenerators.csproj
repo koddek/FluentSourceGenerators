@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>FluentSourceGenerators</PackageId>
+        <Version>0.1.2</Version>
+        <Authors>Koddek</Authors>
+        <Company>Appeey</Company>
+        <Description>The most ergonomic, type-safe fluent API for writing Roslyn incremental source generators with GenResult&lt;T&gt; diagnostics.</Description>
+        <PackageTags>sourcegenerator;roslyn;incremental;fluent;generator;pit-of-success</PackageTags>
+        <PackageProjectUrl>https://github.com/koddek/FluentSourceGenerators</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/koddek/FluentSourceGenerators.git</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.jpg</PackageIcon>
+        <IsPackable>true</IsPackable>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IsRoslynComponent>true</IsRoslynComponent>
+        <IncludeBuildOutput>true</IncludeBuildOutput> <!-- Must be true so you can write 'using FluentSourceGenerators;' -->
+        <DevelopmentDependency>false</DevelopmentDependency> <!-- It is a compile-time dependency for the generator project -->
+    </PropertyGroup>
+
+    <!-- Make internals visible to test project -->
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+            <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" PrivateAssets="all"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\icon.jpg" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+</Project>
